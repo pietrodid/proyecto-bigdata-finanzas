@@ -1,0 +1,17 @@
+pycache/
+.ipynb_checkpoints/
+.env
+.DS_Store
+venv/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.vscode/
+data/raw/
+data/intermediate/
+data/tmp/
+logs/
+.coverage
+dist/
+build/
+*.pyc
