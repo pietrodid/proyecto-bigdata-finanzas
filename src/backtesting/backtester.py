@@ -55,7 +55,7 @@ def ejecutar_backtesting_completo():
     print(f"  Registros con indicadores validos: {rdd_valido.count()}")
 
     # ═══════════════════════════════════════════════
-    # Filtrar senales BUY y SELL
+    # Filtrar señales BUY y SELL
     # ═══════════════════════════════════════════════
     rdd_senales = rdd_valido.filter(lambda x: x[6] in ("BUY", "SELL"))
     print(f"  Total senales BUY/SELL: {rdd_senales.count()}")
@@ -122,7 +122,7 @@ def ejecutar_backtesting_completo():
     print(f"  Mejor operacion:        {max(ganancias):+.2f}%")
     print(f"  Peor operacion:         {min(ganancias):+.2f}%")
 
-    # Top 5 mejores (como ejercicio 11 - sortBy)
+    # Top 5 mejores (sortBy)
     mejores = sorted(resultados, key=lambda x: x[5], reverse=True)[:5]
     print(f"\n  TOP 5 MEJORES OPERACIONES:")
     print("  " + "-" * 75)
@@ -138,7 +138,7 @@ def ejecutar_backtesting_completo():
         print(f"  {op[0]:>10s} | Compra: {op[1]} a {op[2]:>10.2f} "
               f"| Venta: {op[3]} a {op[4]:>10.2f} | {op[5]:>+7.2f}%")
 
-    # Resultados por tipo de activo (como ejercicio 10 - reduceByKey)
+    # Resultados por tipo de activo (reduceByKey)
     print(f"\n  RESULTADOS POR TIPO DE ACTIVO:")
     print("  " + "-" * 55)
 

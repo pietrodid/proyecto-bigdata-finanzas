@@ -52,7 +52,7 @@ def ejecutar_silver_to_gold():
     print(f"  Registros cargados: {total}")
 
     # ═══════════════════════════════════════════════
-    # Agrupar por accion (como ejercicio 10)
+    # Agrupar por accion 
     # ═══════════════════════════════════════════════
     print("\n--- Agrupando por accion ---")
     rdd_por_accion = rdd_silver.map(
@@ -143,7 +143,7 @@ def ejecutar_silver_to_gold():
     print("  RSI calculado")
 
     # ═══════════════════════════════════════════════
-    # Distribucion de senales (como ejercicio 11)
+    # Distribucion de senales 
     # ═══════════════════════════════════════════════
     print("\n--- Distribucion de senales ---")
     distribucion = rdd_gold.map(
@@ -168,7 +168,7 @@ def ejecutar_silver_to_gold():
         print(f"  {s[0]} | {s[1]:>10s} | Close: {s[2]:>10.2f} | RSI: {s[5]:>5.1f} | SELL")
 
     # ═══════════════════════════════════════════════
-    # Guardar capa Gold (ejercicio 12)
+    # Guardar capa Gold 
     # ═══════════════════════════════════════════════
     ruta_gold = "data/gold/stock_gold"
     if os.path.exists(ruta_gold):

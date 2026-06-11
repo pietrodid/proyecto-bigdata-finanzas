@@ -13,19 +13,19 @@ def ejecutar_bronze_to_silver():
     print("=" * 60)
 
     # ═══════════════════════════════════════════════
-    # Configuracion de Spark (como en clase)
+    # Configuracion de Spark 
     # ═══════════════════════════════════════════════
     sc = pyspark.SparkContext.getOrCreate(
         pyspark.SparkConf().setMaster("local[*]").setAppName("Bronze_to_Silver")
     )
 
     # ═══════════════════════════════════════════════
-    # CAPA BRONZE - Cargar datos crudos (ejercicio 2)
+    # CAPA BRONZE - Cargar datos crudos 
     # ═══════════════════════════════════════════════
     print("\n--- Cargando datos Bronze ---")
     rdd = sc.textFile("data/bronze/datos_raw.csv")
 
-    # Visualizacion inicial (ejercicio 3)
+    # Visualizacion inicial 
     print("\nPrimeras 5 filas del CSV crudo:")
     for fila in rdd.take(5):
         print(f"  {fila}")
@@ -34,7 +34,7 @@ def ejecutar_bronze_to_silver():
     print(f"\nTotal de lineas (incluyendo cabecera): {total_lineas}")
 
     # ═══════════════════════════════════════════════
-    # Separar cabecera y campos (ejercicio 4)
+    # Separar cabecera y campos 
     # ═══════════════════════════════════════════════
     header = rdd.first()
     print(f"\nCabecera: {header}")
@@ -47,7 +47,7 @@ def ejecutar_bronze_to_silver():
         print(f"  {fila}")
 
     # ═══════════════════════════════════════════════
-    # Tipado de datos (ejercicio 5)
+    # Tipado de datos 
     # CSV: date,accion,open,high,low,close,volume
     # ═══════════════════════════════════════════════
     def tipar(campos):
@@ -68,7 +68,7 @@ def ejecutar_bronze_to_silver():
     print(f"\nTipos de datos: {tipos}")
 
     # ═══════════════════════════════════════════════
-    # Filtrar registros invalidos (ejercicio 6)
+    # Filtrar registros invalidos
     # ═══════════════════════════════════════════════
     def registro_valido(x):
         try:
@@ -95,7 +95,7 @@ def ejecutar_bronze_to_silver():
     print(f"  Registros eliminados: {total_antes - total_despues}")
 
     # ═══════════════════════════════════════════════
-    # Calcular spread y return (ejercicio 8)
+    # Calcular spread y return 
     # ═══════════════════════════════════════════════
     def calcular_metricas(registro):
         date, accion, open_, high, low, close, volume = registro
@@ -146,7 +146,7 @@ def ejecutar_bronze_to_silver():
     print(f"  Fecha maxima: {fechas.max()}")
 
     # ═══════════════════════════════════════════════
-    # Guardar capa Silver (ejercicio 9)
+    # Guardar capa Silver 
     # ═══════════════════════════════════════════════
     import shutil
     import os

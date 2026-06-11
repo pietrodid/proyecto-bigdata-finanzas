@@ -1,26 +1,24 @@
-# ═══════════════════════════════════════════════
-# Configuración del Proyecto Big Data Finanzas
-# ═══════════════════════════════════════════════
+# Configuracion del Proyecto Big Data Finanzas
 
 # Rutas de datos (arquitectura medallion)
 paths:
   bronze: "data/bronze/datos_raw.csv"
-  silver: "data/silver/datos_silver.parquet"
-  gold: "data/gold/datos_gold.parquet"
-  resultados: "data/gold/backtesting_resultados.csv"
+  silver: "data/silver/stock_silver"
+  gold: "data/gold/stock_gold"
+  resultados: "data/gold/backtesting_resultados"
 
-# Parámetros de indicadores técnicos
+# Parametros de indicadores tecnicos
 indicadores:
   sma_corto: 20
   sma_largo: 50
   rsi_periodo: 14
 
-# Parámetros de señales
+# Parametros de senales
 senales:
   rsi_sobrecompra: 70
   rsi_sobreventa: 30
 
-# Clasificación de activos por sufijo del ticker
+# Clasificacion de activos por sufijo del ticker
 clasificacion:
   IBEX35: ".MC"
   CRYPTO: "-USD"
