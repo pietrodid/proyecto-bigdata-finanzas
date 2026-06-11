@@ -1,17 +1,23 @@
-pycache/
-.ipynb_checkpoints/
-.env
-.DS_Store
+# ═══════════════════════════════════════
+# Archivos que NO se suben a GitHub
+# ═══════════════════════════════════════
+
+# Entorno virtual (cada uno instala el suyo)
 venv/
-.venv/
-.pytest_cache/
-.mypy_cache/
-.vscode/
-data/raw/
-data/intermediate/
-data/tmp/
-logs/
-.coverage
-dist/
-build/
+
+# Datos generados (se regeneran con main.py)
+data/silver/
+data/gold/
+
+# Archivos temporales de Spark
+*.crc
+_SUCCESS
+.spark-*
+metastore_db/
+derby.log
+
+# Archivos de sistema
+.DS_Store
+__pycache__/
 *.pyc
+*.Zone.Identifier

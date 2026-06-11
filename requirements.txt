@@ -1,10 +1,2 @@
-pandas
-numpy
-yfinance
-requests
-scikit-learn
-matplotlib
-seaborn
-plotly
+pyspark
 pyyaml
-jupyter
