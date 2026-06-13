@@ -1,5 +1,5 @@
 """
-SILVER -> GOLD: Indicadores Tecnicos y Senales
+SILVER -> GOLD: Indicadores Tecnicos y señales
 RDDs 
 """
 
@@ -65,7 +65,7 @@ def ejecutar_silver_to_gold():
     print(f"  Acciones agrupadas: {n_acciones}")
 
     # ═══════════════════════════════════════════════
-    # Calcular indicadores y generar senales
+    # Calcular indicadores y generar señales
     # ═══════════════════════════════════════════════
     print("\n--- Calculando indicadores tecnicos ---")
 
@@ -143,9 +143,9 @@ def ejecutar_silver_to_gold():
     print("  RSI calculado")
 
     # ═══════════════════════════════════════════════
-    # Distribucion de senales 
+    # Distribucion de señales 
     # ═══════════════════════════════════════════════
-    print("\n--- Distribucion de senales ---")
+    print("\n--- Distribucion de señales ---")
     distribucion = rdd_gold.map(
         lambda x: (x[6], 1)
     ).reduceByKey(
@@ -155,16 +155,16 @@ def ejecutar_silver_to_gold():
     for senal, count in sorted(distribucion):
         print(f"  {senal:>6s}: {count:>6} registros")
 
-    # Ultimas senales de compra
-    print("\n--- Ultimas senales de COMPRA ---")
-    senales_buy = rdd_gold.filter(lambda x: x[6] == "BUY").collect()
-    for s in sorted(senales_buy, key=lambda x: x[0], reverse=True)[:10]:
+    # Ultimas señales de compra
+    print("\n--- Ultimas señales de COMPRA ---")
+    señales = rdd_gold.filter(lambda x: x[6] == "BUY").collect()
+    for s in sorted(señales, key=lambda x: x[0], reverse=True)[:10]:
         print(f"  {s[0]} | {s[1]:>10s} | Close: {s[2]:>10.2f} | RSI: {s[5]:>5.1f} | BUY")
 
-    # Ultimas senales de venta
-    print("\n--- Ultimas senales de VENTA ---")
-    senales_sell = rdd_gold.filter(lambda x: x[6] == "SELL").collect()
-    for s in sorted(senales_sell, key=lambda x: x[0], reverse=True)[:10]:
+    # Ultimas señales de venta
+    print("\n--- Ultimas señales de VENTA ---")
+    señales_sell = rdd_gold.filter(lambda x: x[6] == "SELL").collect()
+    for s in sorted(señales_sell, key=lambda x: x[0], reverse=True)[:10]:
         print(f"  {s[0]} | {s[1]:>10s} | Close: {s[2]:>10.2f} | RSI: {s[5]:>5.1f} | SELL")
 
     # ═══════════════════════════════════════════════
