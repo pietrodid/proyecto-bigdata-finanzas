@@ -8,7 +8,7 @@ criptomonedas, calcula indicadores tecnicos, genera señales de compra/venta y v
 la estrategia mediante backtesting sobre 10 anios de datos reales.
 
 Asignatura: Big Data
-Equipo: Ines Alguacil Molto, Ines Alguacil Molto, Pietro Dichiara
+Equipo: Ines Alguacil Molto, Gorka Àlvarez Ramon, Pietro Dichiara
 Fecha: Junio 2026
 
 
